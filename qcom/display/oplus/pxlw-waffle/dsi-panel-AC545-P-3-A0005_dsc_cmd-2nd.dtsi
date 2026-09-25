@@ -48,6 +48,7 @@
 				cell-index = <0>;
 				qcom,mdss-mdp-transfer-time-us = <7300>;
 				qcom,mdss-dsi-panel-framerate = <60>;
+				qcom,dsi-qsync-mode-avr-step-fps = <60>;
 				qcom,mdss-dsi-panel-clockrate = <1363200000>;
 				qcom,mdss-dsi-panel-width = <1440>;
 				qcom,mdss-dsi-panel-height = <3168>;
@@ -84,6 +85,7 @@
 				cell-index = <1>;
 				qcom,mdss-mdp-transfer-time-us = <9000>;
 				qcom,mdss-dsi-panel-framerate = <90>;
+				qcom,dsi-qsync-mode-avr-step-fps = <90>;
 				qcom,mdss-dsi-panel-clockrate = <1363200000>;
 				qcom,mdss-dsi-panel-width = <1440>;
 				qcom,mdss-dsi-panel-height = <3168>;
@@ -119,6 +121,7 @@
 				cell-index = <2>;
 				qcom,mdss-mdp-transfer-time-us = <7300>;
 				qcom,mdss-dsi-panel-framerate = <120>;
+				qcom,dsi-qsync-mode-avr-step-fps = <120>;
 				qcom,mdss-dsi-panel-clockrate = <1363200000>;
 				qcom,mdss-dsi-panel-width = <1440>;
 				qcom,mdss-dsi-panel-height = <3168>;
@@ -154,6 +157,7 @@
 				cell-index = <3>;
 				qcom,mdss-mdp-transfer-time-us = <7300>;
 				qcom,mdss-dsi-panel-framerate = <120>;
+				qcom,dsi-qsync-mode-avr-step-fps = <120>;
 				qcom,mdss-dsi-panel-clockrate = <1363200000>;
 				qcom,mdss-dsi-panel-width = <1440>;
 				qcom,mdss-dsi-panel-height = <3168>;
@@ -188,6 +192,7 @@
 			timing@raw_fhd_120 {
 				cell-index = <4>;
 				qcom,mdss-dsi-panel-framerate = <120>;
+				qcom,dsi-qsync-mode-avr-step-fps = <120>;
 				qcom,mdss-dsi-panel-width = <1080>;
 				qcom,mdss-dsi-panel-height = <1660>;
 				qcom,mdss-dsi-h-front-porch = <4>;
@@ -251,5 +256,8 @@
 	qcom,mdss-dsi-bl-min-level = <1>;
 	qcom,mdss-dsi-bl-max-level = <4095>;
 	qcom,mdss-brightness-max-level = <4095>;
+	/* just for qsync enable */
+	qcom,qsync-enable;
+	qcom,mdss-dsi-qsync-min-refresh-rate = <1>;
 };
 

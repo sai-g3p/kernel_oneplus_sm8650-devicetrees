@@ -50,6 +50,7 @@
 				cell-index = <0>;
 				qcom,mdss-mdp-transfer-time-us = <7300>;
 				qcom,mdss-dsi-panel-framerate = <60>;
+				qcom,dsi-qsync-mode-avr-step-fps = <60>;
 				qcom,mdss-dsi-panel-clockrate = <1363200000>;
 				qcom,mdss-dsi-panel-width = <1440>;
 				qcom,mdss-dsi-panel-height = <3168>;
@@ -279,6 +280,7 @@
 				cell-index = <1>;
 				qcom,mdss-mdp-transfer-time-us = <9000>;
 				qcom,mdss-dsi-panel-framerate = <90>;
+				qcom,dsi-qsync-mode-avr-step-fps = <90>;
 				qcom,mdss-dsi-panel-clockrate = <1363200000>;
 				qcom,mdss-dsi-panel-width = <1440>;
 				qcom,mdss-dsi-panel-height = <3168>;
@@ -507,6 +509,7 @@
 				cell-index = <2>;
 				qcom,mdss-mdp-transfer-time-us = <7300>;
 				qcom,mdss-dsi-panel-framerate = <120>;
+				qcom,dsi-qsync-mode-avr-step-fps = <120>;
 				qcom,mdss-dsi-panel-clockrate = <1363200000>;
 				qcom,mdss-dsi-panel-width = <1440>;
 				qcom,mdss-dsi-panel-height = <3168>;
@@ -727,6 +730,7 @@
 				cell-index = <3>;
 				qcom,mdss-mdp-transfer-time-us = <7300>;
 				qcom,mdss-dsi-panel-framerate = <120>;
+				qcom,dsi-qsync-mode-avr-step-fps = <120>;
 				qcom,mdss-dsi-panel-clockrate = <1363200000>;
 				qcom,mdss-dsi-panel-width = <1440>;
 				qcom,mdss-dsi-panel-height = <3168>;
@@ -1043,7 +1047,7 @@
 	oplus,adfr-test-te-gpio = <&tlmm 85 0>;
 	/* just for qsync enable */
 	qcom,qsync-enable;
-	qcom,mdss-dsi-qsync-min-refresh-rate = <24>;
+	qcom,mdss-dsi-qsync-min-refresh-rate = <1>;
 
 	oplus,pwm-switch-support;
 	oplus,pwm-switch-backlight-threshold = <1100>;
