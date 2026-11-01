@@ -254,16 +254,168 @@
 
 	qcom,cpufreq-cdev {
 		compatible = "qcom,cpufreq-cdev";
-		cpu-cluster0 {
+		cpu_cluster0_cdev: cpu-cluster0 {
 			qcom,cpus = <&CPU0 &CPU1 &CPU2>;
+			#cooling-cells = <2>;
 		};
 
-		cpu-cluster1 {
+		cpu_cluster1_cdev: cpu-cluster1 {
 			qcom,cpus = <&CPU3 &CPU4 &CPU5 &CPU6>;
+			#cooling-cells = <2>;
 		};
 
-		cpu-cluster2 {
+		cpu_cluster2_cdev: cpu-cluster2 {
 			qcom,cpus = <&CPU7>;
+			#cooling-cells = <2>;
+		};
+	};
+
+	battery_thermal_policy: battery-thermal-policy {
+		compatible = "qcom,battery-thermal-policy";
+		qcom,source-psy = "battery";
+		qcom,start-delay-ms = <5000>;
+		qcom,retry-delay-ms = <1000>;
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		trip@0 {
+			reg = <0>;
+			temperature = <36000>;
+			hysteresis = <1000>;
+			type = "passive";
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			map@0 { reg = <0>; qcom,cooling-device = <&msm_gpu>;           qcom,min-state = <0>;  qcom,max-state = <0>;  };
+			map@1 { reg = <1>; qcom,cooling-device = <&cpu_cluster0_cdev>; qcom,min-state = <3>;  qcom,max-state = <3>;  };
+			map@2 { reg = <2>; qcom,cooling-device = <&cpu_cluster1_cdev>; qcom,min-state = <2>;  qcom,max-state = <2>;  };
+			map@3 { reg = <3>; qcom,cooling-device = <&cpu_cluster2_cdev>; qcom,min-state = <0>;  qcom,max-state = <0>;  };
+		};
+
+		trip@1 {
+			reg = <1>;
+			temperature = <37000>;
+			hysteresis = <1000>;
+			type = "passive";
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			map@0 { reg = <0>; qcom,cooling-device = <&msm_gpu>;           qcom,min-state = <1>;  qcom,max-state = <1>;  };
+			map@1 { reg = <1>; qcom,cooling-device = <&cpu_cluster0_cdev>; qcom,min-state = <3>;  qcom,max-state = <3>;  };
+			map@2 { reg = <2>; qcom,cooling-device = <&cpu_cluster1_cdev>; qcom,min-state = <3>;  qcom,max-state = <3>;  };
+			map@3 { reg = <3>; qcom,cooling-device = <&cpu_cluster2_cdev>; qcom,min-state = <0>;  qcom,max-state = <0>;  };
+		};
+
+		trip@2 {
+			reg = <2>;
+			temperature = <38000>;
+			hysteresis = <1000>;
+			type = "passive";
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			map@0 { reg = <0>; qcom,cooling-device = <&msm_gpu>;           qcom,min-state = <2>;  qcom,max-state = <2>;  };
+			map@1 { reg = <1>; qcom,cooling-device = <&cpu_cluster0_cdev>; qcom,min-state = <4>;  qcom,max-state = <4>;  };
+			map@2 { reg = <2>; qcom,cooling-device = <&cpu_cluster1_cdev>; qcom,min-state = <4>;  qcom,max-state = <4>;  };
+			map@3 { reg = <3>; qcom,cooling-device = <&cpu_cluster2_cdev>; qcom,min-state = <1>;  qcom,max-state = <1>;  };
+		};
+
+		trip@3 {
+			reg = <3>;
+			temperature = <39000>;
+			hysteresis = <1000>;
+			type = "passive";
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			map@0 { reg = <0>; qcom,cooling-device = <&msm_gpu>;           qcom,min-state = <3>;  qcom,max-state = <3>;  };
+			map@1 { reg = <1>; qcom,cooling-device = <&cpu_cluster0_cdev>; qcom,min-state = <5>;  qcom,max-state = <5>;  };
+			map@2 { reg = <2>; qcom,cooling-device = <&cpu_cluster1_cdev>; qcom,min-state = <5>;  qcom,max-state = <5>;  };
+			map@3 { reg = <3>; qcom,cooling-device = <&cpu_cluster2_cdev>; qcom,min-state = <2>;  qcom,max-state = <2>;  };
+		};
+
+		trip@4 {
+			reg = <4>;
+			temperature = <40000>;
+			hysteresis = <1000>;
+			type = "passive";
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			map@0 { reg = <0>; qcom,cooling-device = <&msm_gpu>;           qcom,min-state = <5>;  qcom,max-state = <5>;  };
+			map@1 { reg = <1>; qcom,cooling-device = <&cpu_cluster0_cdev>; qcom,min-state = <7>;  qcom,max-state = <7>;  };
+			map@2 { reg = <2>; qcom,cooling-device = <&cpu_cluster1_cdev>; qcom,min-state = <7>;  qcom,max-state = <7>;  };
+			map@3 { reg = <3>; qcom,cooling-device = <&cpu_cluster2_cdev>; qcom,min-state = <4>;  qcom,max-state = <4>;  };
+		};
+
+		trip@5 {
+			reg = <5>;
+			temperature = <41500>;
+			hysteresis = <1500>;
+			type = "passive";
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			map@0 { reg = <0>; qcom,cooling-device = <&msm_gpu>;           qcom,min-state = <7>;  qcom,max-state = <7>;  };
+			map@1 { reg = <1>; qcom,cooling-device = <&cpu_cluster0_cdev>; qcom,min-state = <8>;  qcom,max-state = <8>;  };
+			map@2 { reg = <2>; qcom,cooling-device = <&cpu_cluster1_cdev>; qcom,min-state = <9>;  qcom,max-state = <9>;  };
+			map@3 { reg = <3>; qcom,cooling-device = <&cpu_cluster2_cdev>; qcom,min-state = <6>;  qcom,max-state = <6>;  };
+		};
+
+		trip@6 {
+			reg = <6>;
+			temperature = <43000>;
+			hysteresis = <1500>;
+			type = "passive";
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			map@0 { reg = <0>; qcom,cooling-device = <&msm_gpu>;           qcom,min-state = <8>;  qcom,max-state = <8>;  };
+			map@1 { reg = <1>; qcom,cooling-device = <&cpu_cluster0_cdev>; qcom,min-state = <11>; qcom,max-state = <11>; };
+			map@2 { reg = <2>; qcom,cooling-device = <&cpu_cluster1_cdev>; qcom,min-state = <11>; qcom,max-state = <11>; };
+			map@3 { reg = <3>; qcom,cooling-device = <&cpu_cluster2_cdev>; qcom,min-state = <7>;  qcom,max-state = <7>;  };
+		};
+
+		trip@7 {
+			reg = <7>;
+			temperature = <44000>;
+			hysteresis = <1500>;
+			type = "passive";
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			map@0 { reg = <0>; qcom,cooling-device = <&msm_gpu>;           qcom,min-state = <9>;  qcom,max-state = <9>;  };
+			map@1 { reg = <1>; qcom,cooling-device = <&cpu_cluster0_cdev>; qcom,min-state = <13>; qcom,max-state = <13>; };
+			map@2 { reg = <2>; qcom,cooling-device = <&cpu_cluster1_cdev>; qcom,min-state = <14>; qcom,max-state = <14>; };
+			map@3 { reg = <3>; qcom,cooling-device = <&cpu_cluster2_cdev>; qcom,min-state = <10>; qcom,max-state = <10>; };
+		};
+
+		trip@8 {
+			reg = <8>;
+			temperature = <45000>;
+			hysteresis = <1500>;
+			type = "passive";
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			map@0 { reg = <0>; qcom,cooling-device = <&msm_gpu>;           qcom,min-state = <10>; qcom,max-state = <10>; };
+			map@1 { reg = <1>; qcom,cooling-device = <&cpu_cluster0_cdev>; qcom,min-state = <14>; qcom,max-state = <14>; };
+			map@2 { reg = <2>; qcom,cooling-device = <&cpu_cluster1_cdev>; qcom,min-state = <17>; qcom,max-state = <17>; };
+			map@3 { reg = <3>; qcom,cooling-device = <&cpu_cluster2_cdev>; qcom,min-state = <14>; qcom,max-state = <14>; };
+		};
+
+		trip@9 {
+			reg = <9>;
+			temperature = <46000>;
+			hysteresis = <1500>;
+			type = "passive";
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			map@0 { reg = <0>; qcom,cooling-device = <&msm_gpu>;           qcom,min-state = <10>; qcom,max-state = <10>; };
+			map@1 { reg = <1>; qcom,cooling-device = <&cpu_cluster0_cdev>; qcom,min-state = <14>; qcom,max-state = <14>; };
+			map@2 { reg = <2>; qcom,cooling-device = <&cpu_cluster1_cdev>; qcom,min-state = <18>; qcom,max-state = <18>; };
+			map@3 { reg = <3>; qcom,cooling-device = <&cpu_cluster2_cdev>; qcom,min-state = <17>; qcom,max-state = <17>; };
 		};
 	};
 
